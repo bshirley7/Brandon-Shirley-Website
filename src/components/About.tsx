@@ -9,7 +9,7 @@ export const About = () => {
           <h2 className="text-lg font-light text-black mb-4">About</h2>
           <div className="w-full h-px bg-black/20 mb-8" />
           <p className="text-black/70 font-light leading-relaxed">
-            With over a decade of experience spanning creative direction and entrepreneurship, I blend strategic thinking with innovative design to build businesses that matter. My journey from sustainable energy to retirement planning reflects my commitment to solving meaningful challenges.
+          Emmy Award-winning Creative Director and founder of LaBelle XL, partnering with Private Equity firms and global brands like Samsung and AstraZeneca. Led multiple Emmy-winning broadcasts and launched successful campaigns including Malibu Solar ($40M first-week sales). Currently developing innovative solutions for retirement planning.
           </p>
         </div>
         <div>
@@ -36,10 +36,6 @@ export const About = () => {
             <a href="https://www.linkedin.com/in/brandonshirley/" className="flex items-center gap-3 text-black/70 hover:text-black transition-colors">
               <Linkedin size={20} />
               <span className="font-light">/in/brandonshirley</span>
-            </a>
-            <a href="tel:8137655281" className="flex items-center gap-3 text-black/70 hover:text-black transition-colors">
-              <PhoneCall size={20} />
-              <span className="font-light">+1 (813) 765-5281</span>
             </a>
           </div>
         </div>

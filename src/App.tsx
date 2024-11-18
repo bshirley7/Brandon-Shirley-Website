@@ -4,6 +4,7 @@ import { SpeedInsights } from "@vercel/speed-insights/react";
 import { HomePage } from './components/HomePage';
 import { ProjectPage } from './components/ProjectPage';
 import { ProjectGalleryPage } from './components/ProjectGalleryPage';
+import AboutPage from './components/AboutPage';
 import { projects } from './data/projects';
 
 // Wrapper component to handle project data fetching
@@ -29,6 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/work" element={<ProjectGalleryPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/project/:id" element={<ProjectPageWrapper />} />
       </Routes>
       <SpeedInsights />

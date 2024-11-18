@@ -27,25 +27,7 @@ export const Footer = () => {
               </a>
             </div>
           </div>
-          <div>
-            <h3 className="text-white text-lg font-light mb-4">Newsletter</h3>
-            <p className="font-light mb-4">Subscribe for insights on innovation and creative direction.</p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="bg-white/10 px-4 py-2 rounded-full text-sm flex-grow focus:outline-none focus:ring-2 focus:ring-white/20"
-              />
-              <button
-                type="submit"
-                className="bg-white text-black px-6 py-2 rounded-full text-sm hover:bg-white/90 transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
-          </div>
         </div>
-        
         <div className="flex flex-col md:flex-row justify-between items-center pt-12 border-t border-white/10">
           <p className="text-sm font-light mb-4 md:mb-0">© {currentYear} Brandon Shirley. All rights reserved.</p>
           <div className="flex gap-8 text-sm font-light">

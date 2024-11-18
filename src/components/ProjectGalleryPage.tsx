@@ -20,10 +20,10 @@ export const ProjectGalleryPage = () => {
       <div className="pt-32 pb-16 px-8">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Our Work
+            The Work
           </h1>
           <p className="text-white/70 text-xl font-light max-w-2xl">
-            Explore our complete portfolio of projects spanning various industries and disciplines.
+            Explore my portfolio of projects spanning various industries and disciplines.
           </p>
         </div>
       </div>
