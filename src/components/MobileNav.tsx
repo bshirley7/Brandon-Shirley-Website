@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react"
+import { Menu, Mail, Linkedin, PhoneCall } from "lucide-react"
 import { 
   Sheet, 
   SheetContent, 
@@ -7,7 +7,6 @@ import {
   SheetDescription 
 } from "./ui/sheet"
 import { Link } from 'react-router-dom'
-import { ContactDialog } from './ContactDialog'
 
 export const MobileNav = () => {
   return (
@@ -49,14 +48,34 @@ export const MobileNav = () => {
           >
             About
           </Link>
-          <ContactDialog>
-            <button 
-              className="text-left text-white hover:text-neutral-400 transition-colors text-lg opacity-0 animate-slideLeftAndFade"
-              style={{ animationDelay: '300ms' }}
-            >
-              Contact
-            </button>
-          </ContactDialog>
+          <div className="space-y-4 opacity-0 animate-slideLeftAndFade" style={{ animationDelay: '300ms' }}>
+            <div className="text-white text-lg">Contact</div>
+            <div className="space-y-3">
+              <a
+                href="mailto:brandon.shirley@gmail.com"
+                className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
+              >
+                <Mail size={16} />
+                <span className="text-sm">Email Me</span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/brandonshirley/"
+                className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin size={16} />
+                <span className="text-sm">Connect On LinkedIn</span>
+              </a>
+              <a
+                href="tel:8137655281"
+                className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
+              >
+                <PhoneCall size={16} />
+                <span className="text-sm">Call or Text</span>
+              </a>
+            </div>
+          </div>
         </nav>
       </SheetContent>
     </Sheet>
