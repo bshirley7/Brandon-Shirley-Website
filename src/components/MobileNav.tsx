@@ -7,6 +7,7 @@ import {
   SheetDescription 
 } from "./ui/sheet"
 import { Link } from 'react-router-dom'
+import { contactInfo } from '../data/personal';
 
 export const MobileNav = () => {
   return (
@@ -52,14 +53,14 @@ export const MobileNav = () => {
             <div className="text-white text-lg">Contact</div>
             <div className="space-y-3">
               <a
-                href="mailto:brandon.shirley@gmail.com"
+                href={`mailto:${contactInfo.email}`}
                 className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
               >
                 <Mail size={16} />
                 <span className="text-sm">Email Me</span>
               </a>
               <a
-                href="https://www.linkedin.com/in/brandonshirley/"
+                href={`https://www.linkedin.com/in/${contactInfo.linkedin}`}
                 className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -68,7 +69,7 @@ export const MobileNav = () => {
                 <span className="text-sm">Connect On LinkedIn</span>
               </a>
               <a
-                href="tel:8137655281"
+                href={`tel:${contactInfo.phone}`}
                 className="flex items-center gap-3 text-neutral-400 hover:text-white transition-colors"
               >
                 <PhoneCall size={16} />

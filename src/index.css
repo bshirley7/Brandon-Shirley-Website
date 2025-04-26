@@ -11,10 +11,27 @@
   }
   
   body {
-    @apply bg-black text-white antialiased;
+    @apply bg-primary text-text-primary antialiased;
   }
 }
 
-.mix-blend-difference {
-  mix-blend-mode: difference;
+@layer components {
+  .color-transition {
+    @apply transition-colors duration-300;
+  }
 }
+
+@layer utilities {
+  .mix-blend-difference {
+    mix-blend-mode: difference;
+  }
+}
+
+/* Color theme documentation */
+/*
+  To change colors in this website:
+  1. Open tailwind.config.js
+  2. Find the color you want to change in the theme.extend.colors section
+  3. Replace the hex code with your desired color
+  4. Save the file and the changes will apply automatically
+*/
