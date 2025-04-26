@@ -7,7 +7,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "./ui/dialog"
-import { contactInfo } from '../data/personal';
 
 interface ContactDialogProps {
   children: React.ReactNode;
@@ -30,7 +29,7 @@ export const ContactDialog = ({ children }: ContactDialogProps) => {
         </DialogHeader>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           <a
-            href={`mailto:${contactInfo.email}`}
+            href="mailto:brandon.shirley@gmail.com"
             className="group relative flex flex-col items-center gap-4 px-6 py-8 rounded-xl bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-300"
           >
             <div className="p-4 rounded-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 group-hover:scale-110 transition-transform duration-300">
@@ -45,7 +44,7 @@ export const ContactDialog = ({ children }: ContactDialogProps) => {
             />
           </a>
           <a
-            href={`https://www.linkedin.com/in/${contactInfo.linkedin}`}
+            href="https://www.linkedin.com/in/brandonshirley/"
             className="group relative flex flex-col items-center gap-4 px-6 py-8 rounded-xl bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-300"
           >
             <div className="p-4 rounded-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 group-hover:scale-110 transition-transform duration-300">
@@ -60,7 +59,7 @@ export const ContactDialog = ({ children }: ContactDialogProps) => {
             />
           </a>
           <a
-            href={`tel:${contactInfo.phone}`}
+            href="tel:8137655281"
             className="group relative flex flex-col items-center gap-4 px-6 py-8 rounded-xl bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900 dark:to-zinc-800 border border-zinc-200 dark:border-zinc-700 hover:border-zinc-300 dark:hover:border-zinc-600 transition-all duration-300"
           >
             <div className="p-4 rounded-full bg-gradient-to-br from-zinc-100 to-zinc-50 dark:from-zinc-800 dark:to-zinc-900 border border-zinc-200 dark:border-zinc-700 group-hover:scale-110 transition-transform duration-300">
@@ -76,7 +75,7 @@ export const ContactDialog = ({ children }: ContactDialogProps) => {
           </a>
         </div>
         <div className="text-center text-zinc-500 dark:text-zinc-400 text-sm font-light">
-          {contactInfo.location} • {contactInfo.availability}
+          Based in Chicago, IL & Tampa, FL • Available Worldwide
         </div>
       </DialogContent>
     </Dialog>

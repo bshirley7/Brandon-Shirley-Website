@@ -1,35 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { aboutInfo, heroInfo } from '../data/personal';
 
 export const Hero = () => {
-  const renderBackground = () => {
-    if (heroInfo.background.type === 'video') {
-      return (
-        <iframe
-          src={heroInfo.background.url}
-          title={heroInfo.background.title}
-          className="absolute top-0 left-0 w-full h-full opacity-75"
-          style={{ 
-            pointerEvents: 'none',
-            objectFit: 'cover'
-          }}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          frameBorder="0"
-        />
-      );
-    }
-
-    return (
-      <img
-        src={heroInfo.background.url}
-        alt={heroInfo.background.alt || heroInfo.background.title}
-        className="absolute top-0 left-0 w-full h-full opacity-75 object-cover"
-      />
-    );
-  };
-
   return (
     <div className="relative min-h-[100svh] w-full overflow-hidden bg-black">
       <div className="absolute inset-0">
@@ -45,7 +18,17 @@ export const Hero = () => {
               transform: 'translate(-50%, -50%) scale(1.5)'
             }}
           >
-            {renderBackground()}
+            <iframe
+              src="https://www.youtube.com/embed/BDqjOII2Gx4?autoplay=1&mute=1&controls=0&loop=1&playlist=BDqjOII2Gx4&showinfo=0&modestbranding=1&playsinline=1&rel=0&enablejsapi=1&vq=hd1080&iv_load_policy=3&fs=0&disablekb=1"
+              title="Background video"
+              className="absolute top-0 left-0 w-full h-full opacity-75"
+              style={{ 
+                pointerEvents: 'none',
+                objectFit: 'cover'
+              }}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              frameBorder="0"
+            />
           </div>
         </div>
       </div>
@@ -61,13 +44,13 @@ export const Hero = () => {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <div className="text-white/70 text-xl font-light tracking-wider uppercase mb-4">
-                {heroInfo.role}
+                Creative Director
               </div>
               <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                {aboutInfo.name}
+                Brandon Shirley
               </h1>
               <p className="text-white/70 text-2xl font-light mb-12 max-w-2xl leading-relaxed">
-                {heroInfo.tagline}
+                Building Brands. Creating Change.
               </p>
 
               <Link to="/work">

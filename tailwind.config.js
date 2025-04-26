@@ -1,28 +1,11 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
-      colors: {
-        'primary': '#000000',
-        'primary-light': '#333333',
-        'primary-dark': '#000000',
-        'surface': '#111111',
-        'card': '#222222',
-        'text-primary': '#FFFFFF',
-        'text-secondary': '#CCCCCC',
-        'text-muted': '#999999',
-        'accent': '#FF0000',
-        'accent-secondary': '#00FF00',
-        'accent-tertiary': '#0000FF',
-        'success': '#4CAF50',
-        'warning': '#FFC107',
-        'error': '#F44336',
-        'info': '#2196F3',
-      },
       keyframes: {
         slideLeftAndFade: {
           from: { opacity: 0, transform: 'translateX(20px)' },

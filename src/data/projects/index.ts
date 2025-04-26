@@ -1,25 +1,24 @@
-import { Project } from './config/types';
-import { sortProjectsByYear } from './config/utils';
+import { Project } from './types';
+import { sortProjectsByYear } from './utils';
 
 // Import individual project data
-import { testDisciplines } from './projects/test-disciplines';
-import { testThisOut } from './projects/test-this-out';
-import { webPlatformProject } from './projects/web-platform';
-import { brandEvolutionProject } from './projects/brand-evolution';
-import { motionStoryProject } from './projects/motion-story';
-import { socialImpactProject } from './projects/social-impact';
-import { eventExperienceProject } from './projects/event-experience';
+import { huviProject } from './huvi';
+import { domesticViolenceProject } from './domestic-violence';
+import { scrippsHowardProject } from './scripps-howard';
+import { octaneProject } from './octane';
+import { tritonProject } from './triton';
+import { scripps65Project } from './scripps-howard-65';
 
 // Combine and sort all projects
-export const projects: Project[] = [
+export const projects: Project[] = sortProjectsByYear([
+  huviProject,
+  domesticViolenceProject,
+  scrippsHowardProject,
+  octaneProject,
+  tritonProject,
+  scripps65Project,
+]);
 
-  webPlatformProject,
-  brandEvolutionProject,
-  motionStoryProject,
-  socialImpactProject,
-  eventExperienceProject,
-];
-
-export * from './config/types';
-export * from './config/constants';
-export * from './config/utils';
+export * from './types';
+export * from './constants';
+export * from './utils';

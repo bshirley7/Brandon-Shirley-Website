@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mail, Linkedin, PhoneCall } from 'lucide-react';
-import { aboutInfo, contactInfo } from '../data/personal';
 
 export const About = () => {
   return (
@@ -10,32 +9,33 @@ export const About = () => {
           <h2 className="text-lg font-light text-black mb-4">About</h2>
           <div className="w-full h-px bg-black/20 mb-8" />
           <p className="text-black/70 font-light leading-relaxed">
-            {aboutInfo.bio}
+          Emmy Award-winning Creative Director and founder of LaBelle XL, partnering with Private Equity firms and global brands like Samsung and AstraZeneca. Led multiple Emmy-winning broadcasts and launched successful campaigns including Malibu Solar ($40M first-week sales). Currently developing innovative solutions for retirement planning.
           </p>
         </div>
         <div>
           <h2 className="text-lg font-light text-black mb-4">Services</h2>
           <div className="w-full h-px bg-black/20 mb-8" />
           <div className="space-y-2 text-black/70 font-light">
-            {aboutInfo.services.map((service, index) => (
-              <p key={index}>{service}</p>
-            ))}
+            <p>Creative Direction</p>
+            <p>Business Development</p>
+            <p>Product Innovation</p>
+            <p>Strategic Advisor</p>
           </div>
         </div>
         <div>
           <h2 className="text-lg font-light text-black mb-4">Contact</h2>
           <div className="w-full h-px bg-black/20 mb-8" />
           <p className="text-black/70 font-light leading-relaxed mb-6">
-            {contactInfo.availability}
+            Whether you're launching a product, seeking strategic guidance, or exploring venture opportunities, let's discuss how we can create impact together.
           </p>
           <div className="space-y-4">
-            <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-3 text-black/70 hover:text-black transition-colors">
+            <a href="mailto:brandon.shirley@gmail.com" className="flex items-center gap-3 text-black/70 hover:text-black transition-colors">
               <Mail size={20} />
-              <span className="font-light">{contactInfo.email}</span>
+              <span className="font-light">brandon.shirley@gmail.com</span>
             </a>
-            <a href={`https://www.linkedin.com/in/${contactInfo.linkedin}`} className="flex items-center gap-3 text-black/70 hover:text-black transition-colors">
+            <a href="https://www.linkedin.com/in/brandonshirley/" className="flex items-center gap-3 text-black/70 hover:text-black transition-colors">
               <Linkedin size={20} />
-              <span className="font-light">/in/{contactInfo.linkedin}</span>
+              <span className="font-light">/in/brandonshirley</span>
             </a>
           </div>
         </div>
