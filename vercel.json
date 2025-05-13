@@ -2,5 +2,11 @@
   "buildCommand": "npm run build",
   "installCommand": "npm install",
   "framework": "vite",
-  "outputDirectory": "dist"
+  "outputDirectory": "dist",
+  "rewrites": [
+    {
+      "source": "/((?!_next/static|_next/image|favicon.ico|assets/).*)",
+      "destination": "/"
+    }
+  ]
 }
