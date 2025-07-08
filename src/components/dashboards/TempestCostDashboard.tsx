@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   Tooltip, 
   ResponsiveContainer,
   PieChart,
   Pie,
-  Cell
+  Cell,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid
 } from 'recharts';
 import { 
   DollarSign, 
@@ -22,6 +27,20 @@ const CATEGORY_COLORS = {
 
 export const TempestCostDashboard: React.FC = () => {
   const totalCost = getTotalCost();
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  
+  const filteredTools = selectedCategory === 'all' 
+    ? tools 
+    : tools.filter(tool => tool.category === selectedCategory);
+  
+  const chartData = filteredTools
+    .map(tool => ({
+      name: tool.name,
+      cost: tool.cost,
+      category: tool.category,
+      fill: CATEGORY_COLORS[tool.category as keyof typeof CATEGORY_COLORS]
+    }))
+    .sort((a, b) => b.cost - a.cost);
 
   return (
     <div className="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
@@ -186,6 +205,125 @@ export const TempestCostDashboard: React.FC = () => {
                   </div>
                   <div className="text-xl font-light text-black">$258.99</div>
                 </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Interactive Cost Comparison Chart */}
+          <section className="mb-16">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-light text-black mb-2">Tool Cost Comparison</h2>
+              <p className="text-lg text-black/60">Interactive comparison of all tools by cost</p>
+            </div>
+            
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              <button
+                onClick={() => setSelectedCategory('all')}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  selectedCategory === 'all'
+                    ? 'bg-black text-white'
+                    : 'bg-black/10 text-black hover:bg-black/20'
+                }`}
+              >
+                All Tools
+              </button>
+              <button
+                onClick={() => setSelectedCategory('ai')}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  selectedCategory === 'ai'
+                    ? 'bg-purple-500 text-white'
+                    : 'bg-purple-100 text-purple-700 hover:bg-purple-200'
+                }`}
+              >
+                🤖 AI Tools
+              </button>
+              <button
+                onClick={() => setSelectedCategory('infrastructure')}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  selectedCategory === 'infrastructure'
+                    ? 'bg-indigo-500 text-white'
+                    : 'bg-indigo-100 text-indigo-700 hover:bg-indigo-200'
+                }`}
+              >
+                🏗️ Infrastructure
+              </button>
+              <button
+                onClick={() => setSelectedCategory('production')}
+                className={`px-4 py-2 rounded-lg font-medium transition-all ${
+                  selectedCategory === 'production'
+                    ? 'bg-blue-500 text-white'
+                    : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                }`}
+              >
+                🎬 Production
+              </button>
+            </div>
+
+            {/* Bar Chart */}
+            <div className="bg-white rounded-xl p-6 shadow-sm border border-black/10">
+              <ResponsiveContainer width="100%" height={450}>
+                <BarChart
+                  data={chartData}
+                  margin={{ top: 20, right: 30, left: 40, bottom: 20 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                  <XAxis 
+                    dataKey="name" 
+                    tick={{ fontSize: 11 }}
+                    angle={-45}
+                    textAnchor="end"
+                    height={80}
+                    interval={0}
+                  />
+                  <YAxis 
+                    tick={{ fontSize: 12 }}
+                    label={{ value: 'Cost ($)', angle: -90, position: 'insideLeft' }}
+                  />
+                  <Tooltip 
+                    formatter={(value, name, props) => [
+                      `$${value}`,
+                      props.payload.name
+                    ]}
+                    labelFormatter={(label) => `Tool: ${label}`}
+                    contentStyle={{
+                      backgroundColor: 'black',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontSize: '14px',
+                      fontWeight: '500',
+                      padding: '8px 12px'
+                    }}
+                  />
+                  <Bar dataKey="cost" radius={[4, 4, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+
+            {/* Summary Stats */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+              <div className="bg-black/5 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-black">
+                  {filteredTools.length}
+                </div>
+                <div className="text-sm text-black/60">
+                  {selectedCategory === 'all' ? 'Total Tools' : 'Tools in Category'}
+                </div>
+              </div>
+              <div className="bg-black/5 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-black">
+                  ${filteredTools.reduce((sum, tool) => sum + tool.cost, 0).toFixed(2)}
+                </div>
+                <div className="text-sm text-black/60">
+                  {selectedCategory === 'all' ? 'Total Cost' : 'Category Cost'}
+                </div>
+              </div>
+              <div className="bg-black/5 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-black">
+                  ${filteredTools.length > 0 ? (filteredTools.reduce((sum, tool) => sum + tool.cost, 0) / filteredTools.length).toFixed(2) : '0.00'}
+                </div>
+                <div className="text-sm text-black/60">Average Cost</div>
               </div>
             </div>
           </section>
