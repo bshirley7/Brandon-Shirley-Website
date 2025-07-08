@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams } from 'react-router-dom';
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react";
 import { HomePage } from './components/HomePage';
 import { ProjectPage } from './components/ProjectPage';
 import { ProjectGalleryPage } from './components/ProjectGalleryPage';
@@ -39,7 +38,6 @@ function App() {
         <Route path="/project/:id" element={<ProjectPageWrapper />} />
       </Routes>
       <SpeedInsights />
-      <Analytics />
     </Router>
   );
 }
