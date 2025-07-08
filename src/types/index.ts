@@ -20,12 +20,12 @@ export interface GalleryImage {
 export type GalleryLayout = 'full' | 'split' | 'grid' | 'masonry';
 
 export interface ProjectSection {
-  type: 'header' | 'text' | 'image' | 'gallery' | 'video' | 'credits' | 'quote' | 'statistics' | 'bullets' | 'approach' | 'results' | 'value' | 'innovations' | 'impact';
+  type: 'header' | 'text' | 'image' | 'gallery' | 'video' | 'credits' | 'quote' | 'statistics' | 'bullets' | 'approach' | 'results' | 'value' | 'innovations' | 'impact' | 'dashboard';
   title?: string;
-  content: string | string[] | GalleryImage[] | Credit[] | Record<string, string> | Array<{step: string; details: string[]}> | Innovation[];
+  content: string | string[] | GalleryImage[] | Credit[] | Record<string, string> | Array<{step: string; details: string[]}> | Innovation[] | { type: string };
   layout?: GalleryLayout;
   background?: 'black' | 'white';
-  columns?: 2 | 3 | 4;  // Number of columns for masonry layout
+  columns?: 1 | 2 | 3 | 4;  // Number of columns for masonry layout
 }
 
 export interface ProjectHero {
@@ -33,6 +33,11 @@ export interface ProjectHero {
   src: string;
   videoType?: 'local' | 'youtube';
   youtubeId?: string;
+  autoplay?: boolean;
+  muted?: boolean;
+  loop?: boolean;
+  playsInline?: boolean;
+  controls?: boolean;
 }
 
 export interface Project {

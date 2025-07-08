@@ -15,6 +15,7 @@ export const Navigation = () => {
           <Link to="/" className="hover:opacity-70 transition-opacity">Home</Link>
           <Link to="/work" className="hover:opacity-70 transition-opacity">Work</Link>
           <Link to="/about" className="hover:opacity-70 transition-opacity">About</Link>
+          <Link to="/insights" className="hover:opacity-70 transition-opacity">Insights</Link>
           <ContactDialog>
             <button className="hover:opacity-70 transition-opacity">Contact</button>
           </ContactDialog>

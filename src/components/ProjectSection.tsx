@@ -1,6 +1,7 @@
 import React from 'react';
 import { ProjectSection as ProjectSectionType, Credit, Innovation, GalleryImage } from '../types';
 import { Image } from './Image';
+import { TempestCostDashboard } from './dashboards/TempestCostDashboard';
 
 interface ProjectSectionProps {
   section: ProjectSectionType;
@@ -94,23 +95,46 @@ export const ProjectSection = ({ section }: ProjectSectionProps) => {
     </div>
   );
 
-  const renderStatistics = (stats: Record<string, string>) => (
-    <div>
-      {section.title && (
-        <h3 className="text-2xl font-bold mb-6 text-black">{section.title}</h3>
-      )}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {Object.entries(stats).map(([key, value], index) => (
-          <div key={index} className="bg-black/5 p-6 rounded-lg">
-            <h4 className="text-black/60 text-sm uppercase tracking-wider mb-2">
-              {key.replace(/_/g, ' ')}
-            </h4>
-            <p className="text-black text-lg font-medium">{value}</p>
+  const renderStatistics = (stats: Record<string, string> | Array<{value: string; label: string; description: string}>) => {
+    if (Array.isArray(stats)) {
+      return (
+        <div>
+          {section.title && (
+            <h3 className="text-2xl font-bold mb-6 text-black">{section.title}</h3>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="bg-black/5 p-6 rounded-lg">
+                <h4 className="text-black/60 text-sm uppercase tracking-wider mb-2">
+                  {stat.label}
+                </h4>
+                <p className="text-black text-lg font-medium">{stat.value}</p>
+                <p className="text-black/60 text-sm mt-1">{stat.description}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+      );
+    }
+    
+    return (
+      <div>
+        {section.title && (
+          <h3 className="text-2xl font-bold mb-6 text-black">{section.title}</h3>
+        )}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {Object.entries(stats).map(([key, value], index) => (
+            <div key={index} className="bg-black/5 p-6 rounded-lg">
+              <h4 className="text-black/60 text-sm uppercase tracking-wider mb-2">
+                {key.replace(/_/g, ' ')}
+              </h4>
+              <p className="text-black text-lg font-medium">{value}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  };
 
   const renderApproach = (steps: Array<{step: string; details: string[]}>) => (
     <div>
@@ -186,7 +210,7 @@ export const ProjectSection = ({ section }: ProjectSectionProps) => {
     </div>
   );
 
-  const renderInnovations = (innovations: Innovation[]) => (
+  const renderInnovations = (innovations: Innovation[] | Array<Innovation & {badges?: string[]}>) => (
     <div>
       {section.title && (
         <h3 className="text-2xl font-bold mb-6 text-black">{section.title}</h3>
@@ -195,7 +219,19 @@ export const ProjectSection = ({ section }: ProjectSectionProps) => {
         {innovations.map((innovation, index) => (
           <div key={index} className="bg-black/5 p-6 rounded-lg">
             <h4 className="text-xl font-bold text-black mb-3">{innovation.title}</h4>
-            <p className="text-black/70">{innovation.description}</p>
+            <p className="text-black/70 mb-4">{innovation.description}</p>
+            {('badges' in innovation) && innovation.badges && (
+              <div className="flex flex-wrap gap-2">
+                {innovation.badges.map((badge, badgeIndex) => (
+                  <span 
+                    key={badgeIndex}
+                    className="px-3 py-1 text-xs bg-black/10 border border-black/20 rounded-full text-black/70"
+                  >
+                    {badge}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -239,7 +275,7 @@ export const ProjectSection = ({ section }: ProjectSectionProps) => {
         return renderGallery(section.content);
 
       case 'statistics':
-        return renderStatistics(section.content as Record<string, string>);
+        return renderStatistics(section.content as Record<string, string> | Array<{value: string; label: string; description: string}>);
 
       case 'approach':
         return renderApproach(section.content as Array<{step: string; details: string[]}>);
@@ -254,7 +290,7 @@ export const ProjectSection = ({ section }: ProjectSectionProps) => {
         return renderCredits(Array.isArray(section.content) ? section.content as Credit[] : []);
 
       case 'innovations':
-        return renderInnovations(Array.isArray(section.content) ? section.content as Innovation[] : []);
+        return renderInnovations(Array.isArray(section.content) ? section.content as Innovation[] | Array<Innovation & {badges?: string[]}> : []);
 
       case 'impact':
         return renderImpact(Array.isArray(section.content) ? section.content as string[] : []);
@@ -265,6 +301,14 @@ export const ProjectSection = ({ section }: ProjectSectionProps) => {
             {typeof section.content === 'string' ? section.content : ''}
           </blockquote>
         );
+
+      case 'dashboard': {
+        const dashboardContent = section.content as { type: string };
+        if (dashboardContent?.type === 'TempestCostDashboard') {
+          return <TempestCostDashboard />;
+        }
+        return null;
+      }
 
       default:
         return null;

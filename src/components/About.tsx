@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Linkedin, PhoneCall } from 'lucide-react';
+import { Mail, Linkedin } from 'lucide-react';
 
 export const About = () => {
   return (
