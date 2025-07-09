@@ -5,8 +5,8 @@ export const tempestProject: Project = {
   id: 'tempest',
   title: "Tempest: Interactive Streaming Reimagined",
   year: "2025",
-  description: "Built for the Bolt.new Hackathon, Tempest transforms passive streaming into engaging, data-rich experiences with interactive overlays and smart monetization.",
-  image: "/images/tempest/Tempest_Thumbnail_3x2.png",
+  description: "Built for the Bolt.new #WorldsLargestHackathon, Tempest transforms passive streaming into engaging, data-rich experiences with interactive overlays and smart monetization.",
+  image: "/images/tempest/Tempest_Portfolio_Hero.png",
   hero: {
     type: 'youtube',
     src: 'https://www.youtube.com/watch?v=DU5wovu2nJM'
