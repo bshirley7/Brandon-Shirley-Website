@@ -44,7 +44,7 @@ export const Hero = () => {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <div className="text-white/70 text-xl font-light tracking-wider uppercase mb-4">
-                Creative Director
+                Creative Director & Full Stack Developer
               </div>
               <h1 className="text-white text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Brandon Shirley

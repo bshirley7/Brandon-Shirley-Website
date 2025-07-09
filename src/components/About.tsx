@@ -16,6 +16,7 @@ export const About = () => {
           <h2 className="text-lg font-light text-black mb-4">Services</h2>
           <div className="w-full h-px bg-black/20 mb-8" />
           <div className="space-y-2 text-black/70 font-light">
+            <p>Full Stack Development</p>
             <p>Creative Direction</p>
             <p>Business Development</p>
             <p>Product Innovation</p>
