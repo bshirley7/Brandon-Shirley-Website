@@ -8,6 +8,7 @@ import { scrippsHowardProject } from './scripps-howard';
 import { octaneProject } from './octane';
 import { tritonProject } from './triton';
 import { scripps65Project } from './scripps-howard-65';
+import { tempestProject } from './tempest';
 
 // Combine and sort all projects
 export const projects: Project[] = sortProjectsByYear([
@@ -17,6 +18,7 @@ export const projects: Project[] = sortProjectsByYear([
   octaneProject,
   tritonProject,
   scripps65Project,
+  tempestProject,
 ]);
 
 export * from './types';
