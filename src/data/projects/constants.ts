@@ -4,6 +4,9 @@ export const PROJECT_CATEGORIES = {
   BRAND_EVOLUTION: 'Brand Evolution',
   ANIMATION: 'Animation',
   LIVE_EVENT: 'Live Event',
+  HACKATHON: 'Hackathon',
+  CONSULTING: 'Consulting',
+  DEVELOPMENT: 'Development',
 } as const;
 
 export const DISCIPLINES = {
