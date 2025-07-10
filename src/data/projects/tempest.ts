@@ -162,10 +162,7 @@ export const tempestProject: Project = {
       title: 'Team',
       content: [
         { role: 'Developer', name: 'Brandon Shirley' },
-        { role: 'Creative Director', name: 'Brandon Shirley' },
-        { role: 'Strategic Lead', name: 'Brandon Shirley' },
-        { role: 'Innovation Lead', name: 'Brandon Shirley' },
-        { role: 'Designer Partner', name: 'Nicholas Alexander' }
+         { role: 'Designer', name: 'Nicholas Alexander' }
       ]
     }
   ]
